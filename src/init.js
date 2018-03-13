@@ -28,5 +28,39 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+
+  //  $( ".lineUp" ).click(function() {
+  // for(var i = 0; i < window.dancers.length; i++){
+  //  var rect = window.dancers[i].getBoundingClientRect();
+  // console.log(rect);
+  // }
+  // })
+
+  $(".dancer").click(function(){
+    if($(this).hasClass("hover"))
+    {($(this).removeClass("hover"))}
+    else{
+    $(this).addClass("hover");
+    }
+  })
+  //  $(".dancer.blue.hover").click(function(){
+  //    console.log('test')
+  //   $(this).removeClass("hover");
+  // })
+
+ 
+
+
+  
+  $( ".lineUp" ).click(function() {
+  //ignore collisions  
+    var space = window.innerWidth/window.dancers.length;
+    for(var i = 0; i < window.dancers.length; i++){
+        window.dancers[i].setPosition(window.innerHeight / 2, space * i);
+    }
+  });
+  //$("div").overlap();
+
   });
 });

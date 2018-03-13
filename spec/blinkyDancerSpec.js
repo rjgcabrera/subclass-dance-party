@@ -1,11 +1,13 @@
 describe('blinkyDancer', function() {
 
-  var blinkyDancer, clock;
+  var blinkyDancer, clock, blueDancer;
   var timeBetweenSteps = 100;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blueDancer = new makeBlueDancer(10,20,timeBetweenSteps);
+    console.log(blueDancer.step);
   });
 
   it('should have a jQuery $node object', function() {
@@ -30,5 +32,9 @@ describe('blinkyDancer', function() {
       clock.tick(timeBetweenSteps);
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
+    it('should create a blue dancer', function() {
+    expect(blueDancer).assert.isOkay();
+  
+  })
   });
 });
