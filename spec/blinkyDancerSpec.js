@@ -1,12 +1,13 @@
 describe('blinkyDancer', function() {
 
-  var blinkyDancer, clock, blueDancer;
+  var blinkyDancer, clock, blueDancer, growDancer;
   var timeBetweenSteps = 100;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
     blueDancer = new makeBlueDancer(10,20,timeBetweenSteps);
+    growDancer = new makeDancerGrowandShrink(10,20,timeBetweenSteps);
     console.log(blueDancer.step);
   });
 
@@ -32,9 +33,12 @@ describe('blinkyDancer', function() {
       clock.tick(timeBetweenSteps);
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
+    
     it('should create a blue dancer', function() {
-    expect(blueDancer).assert.isOkay();
-  
-  })
+      expect(blueDancer).to.exist;
+    });
+    it('should create a grow-and-shrink dancer', function() {
+      expect(growDancer).to.exist;
+    });
   });
 });

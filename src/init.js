@@ -48,7 +48,12 @@ $(document).ready(function() {
   //    console.log('test')
   //   $(this).removeClass("hover");
   // })
-
+  //console.log(window.dancers[0]);
+  $(".goToFirstDancer").click(function() {
+    for(var i = 0; i < window.dancers.length; i++){
+        window.dancers[i].setPosition(window.dancers[0].top, window.dancers[0].left);
+    }
+  });
  
 
 
